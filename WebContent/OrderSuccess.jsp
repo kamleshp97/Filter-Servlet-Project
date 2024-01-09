@@ -11,7 +11,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
+<style type="text/css">
+	.card {
+	    display: flex;
+	    flex-direction: row !important;
+	    align-items: center !important;
+		}
+</style>
 </head>
 <body>
 
@@ -19,7 +25,7 @@
 String email = (String) session.getAttribute("EMAIL"); 
 Boolean isLoginPass = (Boolean) session.getAttribute("isLoginPass");
 %>
-<c:set var="LENGTH" value="${fn:length(PRODUCTS)}"></c:set>
+
 <div>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	   <a class="navbar-brand" href="homepage">
@@ -30,38 +36,14 @@ Boolean isLoginPass = (Boolean) session.getAttribute("isLoginPass");
 	    <div class="navbar-nav" style="padding-left: 900px;">
 	      <a class="nav-link active" href="mainPage">Shopping<span class="sr-only">(current)</span></a>
 	      <a class="nav-link" href="newProduct">Add New Product</a>
-	      <% if(isLoginPass){ %>
-	      <a class="nav-link" href="login">Logout</a>
-	      <% } %>
 	    </div>
 	  </div>
 	</nav>
 	<div>
-		<h1 class="text-center m-2">Shopping Page</h1>
+		<h1 class="text-center m-2">Summary of order</h1>
 	</div>
 	<div>
-		<div class="row row-cols-1 row-cols-md-3 m-3">
-			<c:if test="${LENGTH > 0 }">
-			<c:forEach var="i" begin="0" end="${fn:length(PRODUCTS)-1 }">
-			<c:set var="PROD" value="${PRODUCTS[i]}"></c:set>		
-			  <div class="col mb-4">
-			    <div class="card h-100">
-			      <img src="${PROD.PRODUCTIMAGEURL}" class="card-img-top" alt="Image not loading ..">
-			      <div class="card-body">
-			        <h5 class="card-title">${PROD.PRODUCTRITLE}</h5>
-			        <h6 class="card-text">Price: INR ${PROD.PRODUCTPRICE}</h6>
-			        <p class="card-text">${PROD.PRODUCTDESC}</p>
-			        <form method="post" action="checkoutProduct">
-			        <input type="text" style="display: none;" name="productId" value="${PROD.PRODUCTID}">
-			        <input class = "bg-success text-white" name="actionType" type ="submit" value="Buy" />
-			        <input class = "bg-warning" type ="submit" name="actionType" value="Add to basket" />
-			        </form>
-			      </div>
-			    </div>
-			  </div>
-			</c:forEach>
-			</c:if>
-		</div>
+		<h2 class="text-center text-success m-4">Order placed successfully. </h2>
 	</div>
 	<footer class="bg-dark text-white mt-4  text-center">Connect me at kamleshp097@gmail.com</footer>
 </div>

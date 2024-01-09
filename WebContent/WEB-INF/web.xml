@@ -78,6 +78,38 @@
   	<servlet-name>addNewProduct</servlet-name>
   	<url-pattern>/addNewProduct</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>checkoutProduct</servlet-name>
+  	<servlet-class>com.project.servlets.CheckoutProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>checkoutProduct</servlet-name>
+  	<url-pattern>/checkoutProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>prodcutDetailsForPayment</servlet-name>
+  	<servlet-class>com.project.servlets.ProdcutDetailsForPayment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>prodcutDetailsForPayment</servlet-name>
+  	<url-pattern>/prodcutDetailsForPayment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>paymentGatway</servlet-name>
+  	<servlet-class>com.project.servlets.PaymentGatway</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>paymentGatway</servlet-name>
+  	<url-pattern>/paymentGatway</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>payment</servlet-name>
+  	<servlet-class>com.project.servlets.Payment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>payment</servlet-name>
+  	<url-pattern>/payment</url-pattern>
+  </servlet-mapping>
   
   <!-- FILTERS -->
 	<filter>
