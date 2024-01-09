@@ -23,8 +23,8 @@
 	  </a>	  
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
 	    <div class="navbar-nav" style="padding-left: 900px;">
-	      <a class="nav-link active" href="homePage">Main <span class="sr-only">(current)</span></a>
-	      <a class="nav-link" href="about">Add New Product</a>
+	      <a class="nav-link " href="mainPage">Shopping <span class="sr-only">(current)</span></a>
+	      <a class="nav-link active" href="about">Add New Product</a>
 	    </div>
 	  </div>
 	</nav>
@@ -37,8 +37,6 @@
 		        <option>Choose Mobile Brand</option>
 		        <option>Apple</option>
 		        <option>Samsung</option>
-		        <option>Karbon</option>
-		        <option>Mi</option>
 		        <option>Realme</option>
 		      </select>
 		  </div>
@@ -66,7 +64,7 @@
 		  </div>
 		   <div class="form-group">
 		    <label for="exampleFormControlFile1">Upload Product Image</label>
-		    <input type="file" class="form-control-file" id="image" name="image" required>
+		    <input type="file" class="form-control-file" id="image" name="image">
 		  </div>
 		
 		  <input type="submit" class="btn btn-primary" value="Add Product" />
