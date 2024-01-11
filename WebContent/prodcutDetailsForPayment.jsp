@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>main</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -33,25 +34,25 @@ Boolean isLoginPass = (Boolean) session.getAttribute("isLoginPass");
 	   		KP Mobile Shop
 	  </a>	  
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
-	    <div class="navbar-nav" style="padding-left: 900px;">
-	      <a class="nav-link active" href="mainPage">Shopping<span class="sr-only">(current)</span></a>
+	    <div class="navbar-nav" style="padding-left: 1025px;">
+	      <a class="nav-link active" href="mainPage">Products<span class="sr-only">(current)</span></a>
 	      <a class="nav-link" href="newProduct">Add New Product</a>
-	      <% if(isLoginPass){ %>
-	      <a class="nav-link" href="login">Logout</a>
+	     <% if(isLoginPass){ %>
+	      	<a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Logout" href="logout" style="font-size: x-large"><i class="fa-solid fa-power-off text-white"></i></a>
 	      <% } %>
 	    </div>
 	  </div>
 	</nav>
 	<div>
-		<h1 class="text-center m-2">Product Details For Payment</h1>
+		<h1 class="text-center m-4">Product Details</h1>
 	</div>
 	<div>
-		<div class="card m-3">
+		<div class="card shadow-lg p-3 m-4">
 		  <img src="${PRODUCT.PRODUCTIMAGEURL}" class="card-img-top p-1" alt="image not found" style="height: 500px !important; width: 450px !important;">
 		  <div class="card-body ml-4">
 		    <h5 class="card-title">${PRODUCT.PRODUCTRITLE}</h5>
 		    <p class="card-text">Description: ${PRODUCT.PRODUCTDESC}</p>
-		    <p class="card-text">Price: INR ${PRODUCT.PRODUCTPRICE} Only</p>
+		    <p class="card-text">Price: Rs. ${PRODUCT.PRODUCTPRICE} Only</p>
 		    <p class="card-text">
 		    	<small class="text-muted">Brand: ${PRODUCT.PRODUCTCATG} </small>
 		    </p>

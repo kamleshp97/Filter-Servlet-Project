@@ -34,7 +34,7 @@ Boolean isLoginPass = (Boolean) session.getAttribute("isLoginPass");
 	  </a>	  
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
 	    <div class="navbar-nav" style="padding-left: 900px;">
-	      <a class="nav-link active" href="mainPage">Shopping<span class="sr-only">(current)</span></a>
+	      <a class="nav-link active" href="mainPage">Products<span class="sr-only">(current)</span></a>
 	      <a class="nav-link" href="newProduct">Add New Product</a>
 
 	    </div>

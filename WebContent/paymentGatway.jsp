@@ -22,8 +22,8 @@
 	   		Payment Gateway
 	  </a>	  
 	</nav>
-	<h1 class="text-center m-2">Payment Gateway</h1>
-	<div class="divMargin">
+	<h1 class="text-center m-4">Payment Gateway</h1>
+	<div class="divMargin shadow-lg p-4 m-4 rounded">
 		<form method="post" action="payment">
 		 <div class="form-group text-center">
 		    <label for="exampleInputEmail1">Product Id: ${productId}</label> 
@@ -43,7 +43,7 @@
 		    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 		    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 
-		    <label for="exampleInputEmail1"><b>Product Price: INR ${productPrice} Only.</b></label>
+		    <label for="exampleInputEmail1"><b>Product Price: Rs. ${productPrice} Only.</b></label>
 		  </div>
 		<div class="form-group">
 		    <label for="exampleInputEmail1">Card holder name: </label>
@@ -62,7 +62,8 @@
 			<input type="text" style="display: none" id="productId" name="productId" value="${productId}">
 			<input type="text" style="display: none" id="productPrice" name="productPrice" value="${productPrice}">
 
-		  <input type="submit" class="btn btn-success" value="Pay" />
+		  <input type="submit" class="btn btn-success" name="actionType" value="Pay" />
+		  <input type="reset" class="btn btn-info" value="Reset" />
 		</form>
 	</div>
 	<footer class="bg-success text-white mt-4 text-center">Connect me at kamleshp097@gmail.com</footer>

@@ -21,6 +21,8 @@ public class CheckoutProduct extends HttpServlet{
 		
 		String productId = req.getParameter("productId");
 		String actionType = req.getParameter("actionType");
+		String emailBy = req.getParameter("emailBy");
+		String productPrice = req.getParameter("productPrice");
 		
 		Map<String, String> map = new LinkedHashMap<>();
 		
@@ -55,7 +57,26 @@ public class CheckoutProduct extends HttpServlet{
 			req.getRequestDispatcher("/prodcutDetailsForPayment.jsp").forward(req, resp);
 		}
 		else{
-			req.getRequestDispatcher("ProdcutMoveToTray").forward(req, resp);
+			try {
+				Class.forName("oracle.jdbc.OracleDriver");
+				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "COMAML", "ORACLE");
+				String query = "INSERT INTO TB_PRODCUT_IN_BASKET "
+						+ "(EMAIL, PRODUCTID, PRODUCTPRICE, ADDINGTIMESTAMP) "
+						+ "VALUES "
+						+ "(?, ?, ?, SYSTIMESTAMP)";
+				PreparedStatement prepareStatement = con.prepareStatement(query);
+				prepareStatement.setString(1, emailBy);
+				prepareStatement.setString(2, productId);
+				prepareStatement.setString(3, productPrice);
+				prepareStatement.executeUpdate();
+				System.out.println("Product fetched successfully from databse into Basket.");
+				req.setAttribute("PRODUCT", map);
+				req.getRequestDispatcher("prodcutMoveToTray").forward(req, resp);
+			} catch (ClassNotFoundException | SQLException e) {
+				System.out.println("Something went wrong during product fetching from databse .");
+				System.out.println(e);
+			}
+			
 		}
 	}
 

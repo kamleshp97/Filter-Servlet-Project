@@ -18,40 +18,24 @@ public class LoginCheck extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("LoginCheck Servlet Called");
-
-		String email = req.getParameter("emailLogin");
-		String password = req.getParameter("passwordLogin");
-		String getEmail = null;
-		String getPassword = null;
-		System.out.println("EMAIL = " + email + " PASSWORD = " + password);
-		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-			Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","COMAML","ORACLE");
-			String query = "SELECT EMAIL, PASSWORD FROM TB_SERVLET_REGISTER WHERE EMAIL =? AND PASSWORD  =?";
-			PreparedStatement preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, password);
-			ResultSet rs = preparedStatement.executeQuery();
-			while(rs.next()){
-				getEmail = rs.getString("EMAIL");
-				getPassword = rs.getString("PASSWORD");
-			}
-			
-			if(getEmail != null && getPassword != null){
-				System.out.println("Successful Login.");
-				HttpSession session = req.getSession();
-				session.setAttribute("EMAIL", getEmail);
-				session.setAttribute("isLoginPass", true);
-				req.getRequestDispatcher("mainPage").forward(req, resp);
-			}
-			else{
-				System.out.println("Login Failed.");
-				req.getRequestDispatcher("/login.html").forward(req, resp);
-			}
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Something went wrong during login.");
-		}	
+		
+		String email = (String) req.getAttribute("passedEmail");
+		System.out.println("passedEmail = " + email);
+		
+		req.setAttribute("passedEmail", email);
+		HttpSession session = req.getSession();
+		session.setAttribute("EMAIL", email);
+		session.setAttribute("isLoginPass", true);
+		
+		if(email.equals("admin@kp.com")){
+			req.getRequestDispatcher("/admin.jsp").forward(req, resp);
+		}
+		else if(email.contains("@kp.com")){
+			req.getRequestDispatcher("mainPage").forward(req, resp);
+		}
+		else{
+			req.getRequestDispatcher("mainPage").forward(req, resp);
+		}
 	}
 	
 }

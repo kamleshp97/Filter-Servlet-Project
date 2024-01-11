@@ -22,13 +22,13 @@
 	   		KP Mobile Shop
 	  </a>	  
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
-	    <div class="navbar-nav" style="padding-left: 900px;">
-	      <a class="nav-link " href="mainPage">Shopping <span class="sr-only">(current)</span></a>
+	    <div class="navbar-nav" style="padding-left: 1050px;">
+	      <a class="nav-link " href="mainPage">Products <span class="sr-only">(current)</span></a>
 	      <a class="nav-link active" href="about">Add New Product</a>
 	    </div>
 	  </div>
 	</nav>
-	<h1 class="text-center m-2">New Product Form</h1>
+	<h1 class="text-center m-4">New Product Form</h1>
 	<div class="divMargin">
 		<form method="post" action="addNewProduct" enctype="multipart/form-data">
 		<div class="form-group">
